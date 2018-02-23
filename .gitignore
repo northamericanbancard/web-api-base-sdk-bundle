@@ -1,0 +1,18 @@
+# PHPUnit
+.coverage/
+phpunit.xml
+.php_cs.cache
+
+#Phpstorm
+.idea/
+
+#composer
+vendor/
+
+# Make/Autoconf config
+config.log
+config.status
+configure
+autom4te.cache/
+dockerfilehashes/
+
