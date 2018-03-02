@@ -558,16 +558,16 @@
         },
         {
             "name": "nab/web-api-base-sdk-php",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/northamericanbancard/web-api-base-sdk-php.git",
-                "reference": "1c0597edbfa865ce7ef8d55dc43a40ae6fa7d467"
+                "reference": "c29ef3011d96c3da9a7aee85a161b2a077b44caf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/northamericanbancard/web-api-base-sdk-php/zipball/1c0597edbfa865ce7ef8d55dc43a40ae6fa7d467",
-                "reference": "1c0597edbfa865ce7ef8d55dc43a40ae6fa7d467",
+                "url": "https://api.github.com/repos/northamericanbancard/web-api-base-sdk-php/zipball/c29ef3011d96c3da9a7aee85a161b2a077b44caf",
+                "reference": "c29ef3011d96c3da9a7aee85a161b2a077b44caf",
                 "shasum": ""
             },
             "require": {
@@ -602,10 +602,10 @@
             "description": "North American Bancard Generic Base-SDK PHP library.",
             "support": {
                 "email": "jhollenbeck@nabancard.com",
-                "source": "https://github.com/northamericanbancard/web-api-base-sdk-php/tree/1.0.0",
+                "source": "https://github.com/northamericanbancard/web-api-base-sdk-php/tree/1.0.1",
                 "issues": "https://github.com/northamericanbancard/web-api-base-sdk-php/issues"
             },
-            "time": "2018-02-22T14:16:11+00:00"
+            "time": "2018-03-02T22:28:58+00:00"
         },
         {
             "name": "paragonie/random_compat",
