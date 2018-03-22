@@ -10,26 +10,18 @@ ARG DOCKER_USER_ID=1000
 RUN apt-get update && \
     apt-get install -y \
     php5 \
-    libapache2-mod-php5 \
     curl \
     acl \
     htop \
     php5-curl \
     php5-common \
     php5-json \
-    php5-intl
+    php5-intl \
+    php5-xdebug \
+    make
 
 RUN sed -i 's|;?date.timezone = .*|date.timezone = America/Detroit|g' /etc/php5/cli/php.ini && \
-    sed -i 's|;?date.timezone = .*|date.timezone = America/Detroit|g' /etc/php5/apache2/php.ini
-
-RUN sed -i 's|memory_limit = 128M|memory_limit = 512M|g' /etc/php5/cli/php.ini && \
-    sed -i 's|memory_limit = 128M|memory_limit = 512M|g' /etc/php5/apache2/php.ini
-
-#Install app-dependent.
-RUN apt-get update && apt-get install -y \
-    libpq-dev \
-    php5-pgsql \
-    make
+    sed -i 's|memory_limit = 128M|memory_limit = 512M|g' /etc/php5/cli/php.ini
 
 VOLUME ["/var/www"]
 
