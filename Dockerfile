@@ -21,7 +21,8 @@ RUN apt-get update && \
     make
 
 RUN sed -i 's|;?date.timezone = .*|date.timezone = America/Detroit|g' /etc/php5/cli/php.ini && \
-    sed -i 's|memory_limit = 128M|memory_limit = 512M|g' /etc/php5/cli/php.ini
+    sed -i 's|;?memory_limit = 128M|memory_limit = 512M|g' /etc/php5/cli/php.ini && \
+    sed -i 's|;?error_log = .*|error_log = /dev/stderr|g' /etc/php5/apache2/php.ini
 
 VOLUME ["/var/www"]
 

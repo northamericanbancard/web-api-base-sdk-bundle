@@ -22,7 +22,7 @@
     "php": ">=5.5",
     "guzzlehttp/guzzle": "*",
     "aws/aws-sdk-php": "^3.36",
-    "nab/web-api-base-sdk-php": "~1.0.0",
+    "nab/web-api-base-sdk-php": "^1.0",
     "symfony/framework-bundle": "^2.8"
   },
   "require-dev": {

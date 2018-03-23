@@ -6,7 +6,6 @@
          backupGlobals="false"
          colors="true"
          bootstrap="./vendor/autoload.php"
-         coverage="./coverage"
 >
     <testsuites>
         <testsuite name="SDK Unit Test Suite">
@@ -26,5 +25,6 @@
     </filter>
     <logging>
         <log type="coverage-html" target="./.coverage" lowUpperBound="35" highLowerBound="70"/>
+        <log type="junit" target="./test-reports/test-results.xml"/>
     </logging>
 </phpunit>

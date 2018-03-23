@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb22f229a5434859226d763ef7dec5d0",
+    "content-hash": "c1fccedec00134cf2d5964ae8cad7d85",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -558,16 +558,16 @@
         },
         {
             "name": "nab/web-api-base-sdk-php",
-            "version": "1.0.1",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/northamericanbancard/web-api-base-sdk-php.git",
-                "reference": "c29ef3011d96c3da9a7aee85a161b2a077b44caf"
+                "reference": "399f20af8c715030ec98709643e243c60cad927b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/northamericanbancard/web-api-base-sdk-php/zipball/c29ef3011d96c3da9a7aee85a161b2a077b44caf",
-                "reference": "c29ef3011d96c3da9a7aee85a161b2a077b44caf",
+                "url": "https://api.github.com/repos/northamericanbancard/web-api-base-sdk-php/zipball/399f20af8c715030ec98709643e243c60cad927b",
+                "reference": "399f20af8c715030ec98709643e243c60cad927b",
                 "shasum": ""
             },
             "require": {
@@ -602,10 +602,10 @@
             "description": "North American Bancard Generic Base-SDK PHP library.",
             "support": {
                 "email": "jhollenbeck@nabancard.com",
-                "source": "https://github.com/northamericanbancard/web-api-base-sdk-php/tree/1.0.1",
+                "source": "https://github.com/northamericanbancard/web-api-base-sdk-php/tree/1.0.4",
                 "issues": "https://github.com/northamericanbancard/web-api-base-sdk-php/issues"
             },
-            "time": "2018-03-02T22:28:58+00:00"
+            "time": "2018-03-23T15:43:05+00:00"
         },
         {
             "name": "paragonie/random_compat",

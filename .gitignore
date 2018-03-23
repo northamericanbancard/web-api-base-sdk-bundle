@@ -1,6 +1,7 @@
 # PHPUnit
 .coverage/
 phpunit.xml
+test-reports
 .php_cs.cache
 
 #Phpstorm
