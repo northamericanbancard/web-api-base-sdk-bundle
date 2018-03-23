@@ -32,7 +32,7 @@ phpcs: vendor
 #maintain a list of docker file hashes that we can use to determine if we should rebuild the image (when
 #the dockerfile hash changes, rebuild the image).
 dockerfilehashes/$(shell sha256sum Dockerfile | cut -f1 -d' '):
-	docker build --build-arg DOCKER_USER_ID=`id -u` -t nab/$(PROJECT_NAME) .
+	docker build -t nab/$(PROJECT_NAME) .
 	mkdir -p dockerfilehashes
 	touch $@
 
