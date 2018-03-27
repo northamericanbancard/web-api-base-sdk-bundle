@@ -13,6 +13,7 @@ use Aws\Credentials\Credentials;
 use NAB\Bundle\WebApiBaseSdk\DependencyInjection\Configuration;
 use NAB\WebApiBaseSdk\AwsApiGatewayClient;
 use NAB\Bundle\WebApiBaseSdk\DependencyInjection\NABWebApiBaseSdkExtension;
+use NAB\WebApiBaseSdk\BasicClient;
 use NAB\WebApiBaseSdk\JwtClient;
 use NAB\WebApiBaseSdk\SignatureV4;
 use NAB\WebApiBaseSdk\SimpleClient;
@@ -67,7 +68,8 @@ class NABWebApiBaseSdkExtensionTest extends KernelTestCase
 
         $credentials = [
             'jwt' => ['jwt' => ['token' => 'my.tok.en']],
-            'aws' => ['aws' => ['credentials' => ['access_key' => 1, 'secret_key' => 2]]],
+            'aws' => ['aws' => ['credentials' => ['access_key' => 1, 'secret_key' => 2,]]],
+            'basic' => ['basic' => ['username' => 'user', 'password' => 'password',]],
             'simple' => [],
         ];
 
@@ -81,12 +83,14 @@ class NABWebApiBaseSdkExtensionTest extends KernelTestCase
         $jwtConfiguration = $testDataBase;
         $awsConfiguration = $testDataBase;
         $simpleConfiguration = $testDataBase;
+        $basicConfiguration = $testDataBase;
 
         foreach (['test', 'derp'] as $clientKey) {
             foreach ([
                 'jwt' => &$jwtConfiguration,
                 'aws' => &$awsConfiguration,
                 'simple' => &$simpleConfiguration,
+                'basic' => &$basicConfiguration,
             ] as $key => &$testData) {
                     $testData['nab_web_api_base_sdk']['endpoints'][$clientKey] += $credentials[$key];
             }
@@ -102,6 +106,16 @@ class NABWebApiBaseSdkExtensionTest extends KernelTestCase
                 'guzzle_config_argument_index' => 2,
                 'expected_guzzle_config' => $guzzleConfigurationBase,
                 'service_classification' => 'simple',
+            ],
+            'basic' => [
+                'configuration' => $basicConfiguration,
+                'class_name' => BasicClient::class,
+                'service_constructor_argument_length' => 5,
+                'constructor_definitions' => [],
+                'x_api_token_argument_index' => 3,
+                'guzzle_config_argument_index' => 4,
+                'expected_guzzle_config' => $guzzleConfigurationBase,
+                'service_classification' => 'basic',
             ],
             'jwt' => [
                 'configuration' => $jwtConfiguration,

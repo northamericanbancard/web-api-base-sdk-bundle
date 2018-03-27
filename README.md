@@ -203,7 +203,7 @@ my_special_config_alias:
     cookies: <DEFAULT:false>
   endpoints:
     my_endpoint_name:
-      wrapped_by: My\Sdk\Class
+      wrapped_by: My\Sdk\Class  #Either set this as YOUR SDK wrapper around the BaseSDK Client in your bundle by default during config load in your extension, or here, or leave empty.
       base_endpoint: <REQUIRED> #base path of your api such has https://my.api.aws.com/api/stage, no trailing /
       api_key: <DEFAULT:NULL>
       aws:
@@ -225,11 +225,30 @@ nab_web_api_base_sdk:
     cookies: <DEFAULT:false>
   endpoints:
     my_endpoint_name:
-      wrapped_by: My\Sdk\Class
+      wrapped_by: My\Sdk\Class  #Either set this as YOUR SDK wrapper around the BaseSDK Client in your bundle by default during config load in your extension, or here, or leave empty.
       base_endpoint: <REQUIRED> #base path of your api such has https://my.api.aws.com/api/stage, no trailing /
       api_key: <DEFAULT:NULL>
       jwt:
         token: <MY_TOKEN:REQUIRED>
+```
+
+#### Basic
+
+```yaml
+nab_web_api_base_sdk:
+  guzzle_configuration:
+    http_errors: <DEFAULT:false>
+    decode_content: <DEFAULT:true>
+    verify: <DEFAULT:true>
+    cookies: <DEFAULT:false>
+  endpoints:
+    my_endpoint_name:
+      wrapped_by: My\Sdk\Class  #Either set this as YOUR SDK wrapper around the BaseSDK Client in your bundle by default during config load in your extension, or here, or leave empty.
+      base_endpoint: <REQUIRED> #base path of your api such has https://my.api.aws.com/api/stage, no trailing /
+      api_key: <DEFAULT:NULL>
+      basic:
+        username: <MY_HTTP_BASIC_AUTH_USERNAME:REQUIRED>
+        password: <MY_HTTP_BASIC_AUTH_PASSWORD:REQUIRED>
 ```
 
 #### Simple
@@ -243,7 +262,7 @@ nab_web_api_base_sdk:
     cookies: <DEFAULT:false>
   endpoints:
     my_endpoint_name:
-      wrapped_by: My\Sdk\Class
+      wrapped_by: My\Sdk\Class  #Either set this as YOUR SDK wrapper around the BaseSDK Client in your bundle by default during config load in your extension, or here, or leave empty.
       base_endpoint: <REQUIRED> #base path of your api such has https://my.api.aws.com/api/stage, no trailing /
       api_key: <DEFAULT:NULL>
       #Note - No authentication mechanism listed (such as jwt or aws).

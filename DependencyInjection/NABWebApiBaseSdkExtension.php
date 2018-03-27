@@ -102,6 +102,9 @@ class NABWebApiBaseSdkExtension extends Extension
             } elseif (isset($endpoint['jwt']) && $endpoint['jwt']['enabled']) {
                 $serviceKey = sprintf($serviceKeyTemplate, $endpointServiceDefinitionKey, 'jwt');
                 $serviceDefiner = 'setJwtService';
+            } elseif (isset($endpoint['basic']) && $endpoint['basic']['enabled']) {
+                $serviceKey = sprintf($serviceKeyTemplate, $endpointServiceDefinitionKey, 'basic');
+                $serviceDefiner = 'setBasicService';
             } else {
                 $serviceKey = sprintf($serviceKeyTemplate, $endpointServiceDefinitionKey, 'simple');
                 $serviceDefiner = 'setSimpleService';
@@ -185,6 +188,40 @@ class NABWebApiBaseSdkExtension extends Extension
             [
                 $baseEndpoint,
                 $token,
+                $endpointConfig['api_key'],
+                $guzzleConfiguration
+            ]
+        );
+
+        $this->wrapDefinition($containerBuilder, $clientDefinition, $serviceKey, $endpointConfig['wrapped_by']);
+    }
+
+    /**
+     * Sets up any requested BasicAuth-capable callers.
+     *
+     * @param ContainerBuilder $containerBuilder An instance of Symfony's Container Builder
+     * @param string $serviceKey                 The service key to access this service using container->get
+     * @param string $baseEndpoint               The base url where all SDK calls stem from
+     * @param array $endpointConfig              The complete configuration for the current endpoint
+     * @param array $guzzleConfiguration         The guzzle config to pass up to the Guzzle client
+     */
+    private function setBasicService(
+        ContainerBuilder $containerBuilder,
+        $serviceKey,
+        $baseEndpoint,
+        array $endpointConfig,
+        array $guzzleConfiguration
+    ) {
+        $basicConfig = $endpointConfig['basic'];
+        $username = $basicConfig['username'];
+        $password = $basicConfig['password'];
+
+        $clientDefinition = new Definition(
+            Client\BasicClient::class,
+            [
+                $baseEndpoint,
+                $username,
+                $password,
                 $endpointConfig['api_key'],
                 $guzzleConfiguration
             ]
