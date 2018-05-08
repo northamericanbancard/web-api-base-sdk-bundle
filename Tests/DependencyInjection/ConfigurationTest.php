@@ -48,6 +48,14 @@ class ConfigurationTest extends KernelTestCase
                     'decode_content' => true,
                     'verify' => true,
                     'cookies' => false,
+                    'allow_redirects' => true,
+                    'cert' => null,
+                    'connect_timeout' => 5.0,
+                    'debug' => false,
+                    'headers' => [],
+                    'ssl_key' => null,
+                    'stream' => false,
+                    'timeout' => 5.0,
                 ]
             ],
             [
@@ -55,6 +63,7 @@ class ConfigurationTest extends KernelTestCase
                     'guzzle_configuration' => [
                         'http_errors' => true,
                         'cookies' => true,
+                        'timeout' => 6.0,
                     ]
                 ],
                 'expected' => [
@@ -62,6 +71,14 @@ class ConfigurationTest extends KernelTestCase
                     'decode_content' => true,
                     'verify' => true,
                     'cookies' => true,
+                    'allow_redirects' => true,
+                    'cert' => null,
+                    'connect_timeout' => 5.0,
+                    'debug' => false,
+                    'headers' => [],
+                    'ssl_key' => null,
+                    'stream' => false,
+                    'timeout' => 6.0,
                 ]
             ]
         ];

@@ -78,6 +78,14 @@ class NABWebApiBaseSdkExtensionTest extends KernelTestCase
             'decode_content' => true,
             'verify' => true,
             'cookies' => false,
+            'allow_redirects' => true,
+            'cert' => null,
+            'connect_timeout' => 5.0,
+            'debug' => false,
+            'headers' => [],
+            'ssl_key' => null,
+            'stream' => false,
+            'timeout' => 5.0,
         ];
 
         $jwtConfiguration = $testDataBase;
